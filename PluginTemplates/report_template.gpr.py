@@ -3,7 +3,7 @@
 # Gramps plugin- an addon gramplet for
 # the Gramps GTK+/GNOME based genealogy program
 #
-# Copyright (C) 2024     Kari Kujansuu
+# Copyright (C) 2020-2024    Gary Griffin <genealogy@garygriffin.net>
 #
 # This program is free software; you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -41,14 +41,11 @@ else:
     additional_args = {
         "status": EXPERIMENTAL, # required
         "audience": EXPERT,
-        "maintainers": ["Kari Kujansuu",
+        "maintainers": ["Gary Griffin",
             "Gramps Bugtracker"],
-        "maintainers_email": ["kari.kujansuu@gmail.com",
+        "maintainers_email": ["genealogy@garygriffin.net",
             "https://gramps-project.org/bugs"],
         "help_url": "https://github.com/emyoulation/experimental-addons-source",
-#        "requires_mod": ['svgwrite'],
-#        "requires_gi": [('GooCanvas', '2.0,3.0')],
-#        "requires_exe": ['dot'],
     }
 
 # ------------------------------------------------------------------------
@@ -57,23 +54,21 @@ else:
 #
 # ------------------------------------------------------------------------
 
-register(GRAMPLET, # uppercase
-        id="SampleGramplet",
-        name=_("Sample Gramplet"),
-        description=_("sample Gramplet with "
-            "filter Configuration options"
+register(REPORT, # uppercase
+        id="sample report", # required to be unique
+        name=_("Sample Report"),
+        description=_("sample set of reports that "
+            "produces a catalog of specified objects."
         ), # optional
-        navtypes=["Person","Families"], # optional
-        authors=["Kari Kujansuu"], # optional
-        authors_email=["kari.kujansuu@gmail.com"], # optional
-        fname="FilteredGramplet_template.py",
-        height=300,
-        detached_width=250, # optional
-        detached_height=400, # optional
-        expand=True, # optional
-        gramplet='SampleGramplet',
-        gramplet_title=_("Sample Gramplet"),
-        version = '0.0.1',
+        authors=["Gary Griffin"], # optional
+        authors_email=["genealogy@garygriffin.net"], # optional
+        fname="report_template.py",
+        version = '0.6.1',
         gramps_target_version=major_version,
+        category = CATEGORY_TEXT,
+        reportclass = 'report_template',
+        optionclass = 'report_templateOptions',
+        report_modes = [REPORT_MODE_GUI, REPORT_MODE_BKI, REPORT_MODE_CLI],
+        require_active = False,
         **additional_args,
         )
