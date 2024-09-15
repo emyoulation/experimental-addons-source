@@ -1,5 +1,5 @@
 # experimental-addons-source
-Collaborative addon development
+Collaborative addon development for Gramps genealogy software
 
 ## Description
 Shared repository of open-source templates for creating add-on plugins for Gramps genealogy software. 
