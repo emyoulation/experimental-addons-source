@@ -34,21 +34,22 @@ from gramps.version import major_version, VERSION_TUPLE
 
 if VERSION_TUPLE < (5, 2, 0):
     additional_args = {
-        "status": UNSTABLE, # required
-        "help_url": "Gramplets",#secure http not supported in these versions
+        "status": UNSTABLE,  # required
+        "help_url": "Gramplets",  # secure http not supported in these versions
     }
 else:
     additional_args = {
-        "status": EXPERIMENTAL, # required
+        "status": EXPERIMENTAL,  # required
         "audience": EXPERT,
-        "maintainers": ["Kari Kujansuu",
-            "Gramps Bugtracker"],
-        "maintainers_email": ["kari.kujansuu@gmail.com",
-            "https://gramps-project.org/bugs"],
+        "maintainers": ["Kari Kujansuu", "Gramps Bugtracker"],
+        "maintainers_email": [
+            "kari.kujansuu@gmail.com",
+            "https://gramps-project.org/bugs",
+        ],
         "help_url": "https://github.com/emyoulation/experimental-addons-source",
-#        "requires_mod": ['svgwrite'],
-#        "requires_gi": [('GooCanvas', '2.0,3.0')],
-#        "requires_exe": ['dot'],
+        #        "requires_mod": ['svgwrite'],
+        #        "requires_gi": [('GooCanvas', '2.0,3.0')],
+        #        "requires_exe": ['dot'],
     }
 
 # ------------------------------------------------------------------------
@@ -57,23 +58,22 @@ else:
 #
 # ------------------------------------------------------------------------
 
-register(GRAMPLET, # uppercase
-        id="SampleGramplet",
-        name=_("Sample Gramplet"),
-        description=_("sample Gramplet with "
-            "filter Configuration options"
-        ), # optional
-        navtypes=["Person","Families"], # optional
-        authors=["Kari Kujansuu"], # optional
-        authors_email=["kari.kujansuu@gmail.com"], # optional
-        fname="FilteredGramplet_template.py",
-        height=300,
-        detached_width=250, # optional
-        detached_height=400, # optional
-        expand=True, # optional
-        gramplet='SampleGramplet',
-        gramplet_title=_("Sample Gramplet"),
-        version = '0.0.1',
-        gramps_target_version=major_version,
-        **additional_args,
-        )
+register(
+    GRAMPLET,  # uppercase
+    id="SampleGramplet",
+    name=_("Sample Gramplet"),
+    description=_("sample Gramplet with " "filter Configuration options"),  # optional
+    navtypes=["Person", "Families"],  # optional
+    authors=["Kari Kujansuu"],  # optional
+    authors_email=["kari.kujansuu@gmail.com"],  # optional
+    fname="FilteredGramplet_template.py",
+    height=300,
+    detached_width=250,  # optional
+    detached_height=400,  # optional
+    expand=True,  # optional
+    gramplet="SampleGramplet",
+    gramplet_title=_("Sample Gramplet"),
+    version="0.0.1",
+    gramps_target_version=major_version,
+    **additional_args,
+)
