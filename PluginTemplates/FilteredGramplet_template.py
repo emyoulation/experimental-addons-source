@@ -28,22 +28,23 @@
 
 # See https://www.gramps-project.org/wiki/index.php/Gramplets
 
-import inspect # debug library
+import inspect  # debug library
 from gramps.gen.filters import CustomFilters
 from gramps.gen.plug.menu import FilterOption
 from gramps.gen.plug import Gramplet
 
+
 class SampleGramplet(Gramplet):
 
     def init(self):
-        self.filter_list = CustomFilters.get_filters('Person')
+        self.filter_list = CustomFilters.get_filters("Person")
         self.filter_index = 0
 
     def build_options(self):
-        self.filter_option = FilterOption('Filter', self.filter_index)
+        self.filter_option = FilterOption("Filter", self.filter_index)
         self.filter_option.set_filters(self.filter_list)
         self.add_option(self.filter_option)
-        self.print_filter_name() # debug
+        self.print_filter_name()  # debug
 
     def on_load(self):
         if len(self.gui.data) > 0:
@@ -52,7 +53,7 @@ class SampleGramplet(Gramplet):
     def save_options(self):
         self.filter_index = self.filter_option.get_value()
         self.gui.data = [self.filter_index]
-        self.print_filter_name() # debug
+        self.print_filter_name()  # debug
 
     def print_filter_name(self):
         selected_filter = self.filter_option.get_filter()
