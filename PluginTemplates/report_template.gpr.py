@@ -34,17 +34,18 @@ from gramps.version import major_version, VERSION_TUPLE
 
 if VERSION_TUPLE < (5, 2, 0):
     additional_args = {
-        "status": UNSTABLE, # required
-        "help_url": "Gramplets",#secure http not supported in these versions
+        "status": UNSTABLE,  # required
+        "help_url": "Gramplets",  # secure http not supported in these versions
     }
 else:
     additional_args = {
-        "status": EXPERIMENTAL, # required
+        "status": EXPERIMENTAL,  # required
         "audience": EXPERT,
-        "maintainers": ["Gary Griffin",
-            "Gramps Bugtracker"],
-        "maintainers_email": ["genealogy@garygriffin.net",
-            "https://gramps-project.org/bugs"],
+        "maintainers": ["Gary Griffin", "Gramps Bugtracker"],
+        "maintainers_email": [
+            "genealogy@garygriffin.net",
+            "https://gramps-project.org/bugs",
+        ],
         "help_url": "https://github.com/emyoulation/experimental-addons-source",
     }
 
@@ -54,21 +55,22 @@ else:
 #
 # ------------------------------------------------------------------------
 
-register(REPORT, # uppercase
-        id="sample report", # required to be unique
-        name=_("Sample Report"),
-        description=_("sample set of reports that "
-            "produces a catalog of specified objects."
-        ), # optional
-        authors=["Gary Griffin"], # optional
-        authors_email=["genealogy@garygriffin.net"], # optional
-        fname="report_template.py",
-        version = '0.6.1',
-        gramps_target_version=major_version,
-        category = CATEGORY_TEXT,
-        reportclass = 'report_template',
-        optionclass = 'report_templateOptions',
-        report_modes = [REPORT_MODE_GUI, REPORT_MODE_BKI, REPORT_MODE_CLI],
-        require_active = False,
-        **additional_args,
-        )
+register(
+    REPORT,  # uppercase
+    id="sample report",  # required to be unique
+    name=_("Sample Report"),
+    description=_(
+        "sample set of reports that " "produces a catalog of specified objects."
+    ),  # optional
+    authors=["Gary Griffin"],  # optional
+    authors_email=["genealogy@garygriffin.net"],  # optional
+    fname="report_template.py",
+    version="0.6.1",
+    gramps_target_version=major_version,
+    category=CATEGORY_TEXT,
+    reportclass="report_template",
+    optionclass="report_templateOptions",
+    report_modes=[REPORT_MODE_GUI, REPORT_MODE_BKI, REPORT_MODE_CLI],
+    require_active=False,
+    **additional_args,
+)
